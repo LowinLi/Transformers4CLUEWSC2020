@@ -1,0 +1,5 @@
+.vscode
+trained
+__pycache__
+pretrained
+logs
