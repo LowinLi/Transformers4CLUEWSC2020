@@ -1,4 +1,9 @@
-
+## 运行方法
+目录下
+```python
+pip install -r requirements.txt
+python classifier.py
+```
 ## 训练评测数据
 CLUE BENCHMARK:[WSC2020](https://github.com/CLUEbenchmark/CLUEWSC2020)
 
