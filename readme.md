@@ -3,7 +3,7 @@
 CLUE BENCHMARK:[WSC2020](https://github.com/CLUEbenchmark/CLUEWSC2020)
 
 ## 模型结构
- ![](./pic/指代消解bert结构.png)
+ ![](pic/指代消解bert结构.png)
 
 ## finetune 
 科大讯飞chinese-roberta-wwm-ext，25batchsize，4个epoch后验证集acc指标84.8%
