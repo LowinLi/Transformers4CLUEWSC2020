@@ -23,17 +23,22 @@ class Config:
     max_length = 200
     output_model_dir = os.path.dirname(os.path.abspath(__file__)) + "/trained/"
     pretrained_dir = os.path.dirname(os.path.abspath(__file__)) + "/pretrained/"
-    pretrained_model = 'chinese-roberta-wwm-ext'
+    pretrained_model = "chinese-roberta-wwm-ext"
 
 
 config = Config()
 
+
 def download_hfl(name, save_dir):
     from transformers import BertTokenizer, BertModel
-    tokenizer = BertTokenizer.from_pretrained('hfl/' + name, cache_dir=save_dir + "cache")
-    model = BertModel.from_pretrained('hfl/' + name, cache_dir=save_dir + "cache")
+
+    tokenizer = BertTokenizer.from_pretrained(
+        "hfl/" + name, cache_dir=save_dir + "cache"
+    )
+    model = BertModel.from_pretrained("hfl/" + name, cache_dir=save_dir + "cache")
     tokenizer.save_pretrained(save_dir + name + "/")
     model.save_pretrained(save_dir + name + "/")
+
 
 class Finetuner:
     __name__ = "dnn"
@@ -44,7 +49,9 @@ class Finetuner:
         self.config.model_name = model_name
         if not os.path.exists(os.path.join(config.output_model_dir, model_name)):
             os.makedirs(os.path.join(config.output_model_dir, model_name))
-        if not os.path.exists(os.path.join(config.pretrained_dir, config.pretrained_model)):
+        if not os.path.exists(
+            os.path.join(config.pretrained_dir, config.pretrained_model)
+        ):
             download_hfl(config.pretrained_model, config.pretrained_dir)
 
     def train(self):
