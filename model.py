@@ -18,7 +18,7 @@ class Roberta(nn.Module):
             self.embeddings = BertModel.from_pretrained(config.model_saved_dir)
         self.device = config.device
 
-        def forward(self, x):
+    def forward(self, x):
         input_ids, attention_mask, span1_begin, span1_end, span2_begin, span2_end = x
         embedded = self.embeddings(input_ids, attention_mask)
         indexs = torch.cat(
